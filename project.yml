@@ -1,0 +1,85 @@
+name: OpenMeteoWeather-LLMCompare
+
+options:
+  bundleIdPrefix: com.10yo4n
+  deploymentTarget:
+    iOS: 16.0
+
+configs:
+  Debug: debug
+  Release: release
+
+settings:
+  base:
+    GENERATE_INFOPLIST_FILE: YES
+
+targets:
+  OpenMeteoWeather-LLMCompare:
+    type: application
+    platform: iOS
+    sources:
+      - path: App
+    dependencies:
+      - target: AntigravityFeature
+      - target: ClaudeFeature
+      - target: CodexFeature
+      - target: GeminiFeature
+      - target: KimiFeature
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.openmeteoweather.compare
+        PRODUCT_NAME: OpenMeteoWeatherCompare
+        INFOPLIST_KEY_CFBundleDisplayName: WeatherCompare
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
+        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone: UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight
+        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad: UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight
+        CODE_SIGN_STYLE: Automatic
+        DEVELOPMENT_TEAM: F2FS772AW5
+
+  ClaudeFeature:
+    type: framework
+    platform: iOS
+    sources:
+      - path: Modules/Claude/Sources
+    dependencies:
+      - sdk: Charts.framework
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.openmeteoweather.compare.claude
+
+  AntigravityFeature:
+    type: framework
+    platform: iOS
+    sources:
+      - path: Modules/Antigravity/Sources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.openmeteoweather.compare.antigravity
+
+  CodexFeature:
+    type: framework
+    platform: iOS
+    sources:
+      - path: Modules/Codex/Sources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.openmeteoweather.compare.codex
+
+  GeminiFeature:
+    type: framework
+    platform: iOS
+    sources:
+      - path: Modules/Gemini/Sources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.openmeteoweather.compare.gemini
+
+  KimiFeature:
+    type: framework
+    platform: iOS
+    sources:
+      - path: Modules/Kimi/Sources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.openmeteoweather.compare.kimi

@@ -1,0 +1,25 @@
+# macOS
+.DS_Store
+
+# Xcode build artifacts
+DerivedData/
+build/
+
+# Xcode user-specific settings
+*.xcuserstate
+*.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/
+xcuserdata/
+
+# Generated Xcode project (managed from project.yml)
+OpenMeteoWeather-LLMCompare.xcodeproj/
+
+# Swift Package Manager
+.build/
+Package.resolved
+
+# Local tool/app metadata
+.claude/
+
+# Local logs
+*.log
